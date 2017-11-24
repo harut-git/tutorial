@@ -42,9 +42,6 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': (
-        'rest_framework_filters.backends.DjangoFilterBackend'
-    ),
     'DEFAULT_PAGINATION_CLASS': None,
     'PAGE_SIZE': 10
 }
