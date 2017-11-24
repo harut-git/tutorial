@@ -10,6 +10,5 @@ class Product(models.Model):
     description = models.CharField(max_length=120)
     price = models.IntegerField()
 
-
-k = Product(name="Apple", description="green fresh apple", price=8)
-k.save()
+    def __str__(self):
+        return self.name

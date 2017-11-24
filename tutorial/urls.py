@@ -21,8 +21,10 @@ from rest_framework import routers
 from quickstart import views
 
 router = routers.DefaultRouter()
-router.register(r'products', views.ProductViewSet)
+
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^admin/', admin.site.urls),
+    url('^products/(?P<name>.+)/$', views.ProductViewSet.as_view()),
 ]
