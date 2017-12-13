@@ -6,6 +6,9 @@ from serializers import ProductSerializer
 
 # Create your views here.
 
+class Products(generics.CreateAPIView):
+    serializer_class = ProductSerializer
+
 
 class ProductViewSet(generics.ListAPIView):
     serializer_class = ProductSerializer
@@ -15,5 +18,5 @@ class ProductViewSet(generics.ListAPIView):
         This view should return a list of all the purchases for
         the user as determined by the username portion of the URL.
         """
-        username = self.kwargs['name']
-        return Product.objects.filter(name=username)
+        name = self.kwargs['name']
+        return Product.objects.filter(name=name)
