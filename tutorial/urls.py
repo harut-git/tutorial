@@ -21,6 +21,7 @@ from quickstart import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('^products/(?P<name>.+)/$', views.ProductViewSet.as_view()),
+    url('^product/(?P<name>.+)/$', views.ProductViewSet.as_view()),
     url('^products/', views.Products.as_view()),
+    url('^productlist/', views.ProductList.as_view()),
 ]

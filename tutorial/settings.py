@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'quickstart',
-    'rest_framework'
+    'rest_framework',
+    'django_filters'
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': None,
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
 
 MIDDLEWARE = [
