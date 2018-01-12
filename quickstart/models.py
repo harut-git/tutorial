@@ -1,9 +1,11 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from hvad.models import TranslatableModel, TranslatedFields
 
 
 # Create your models here.
+
 
 class Product(models.Model):
     name = models.CharField(max_length=120)
@@ -13,3 +15,13 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Fruit(TranslatableModel):
+    price = models.IntegerField()
+    promoted = models.BooleanField(default=False)
+
+    translations = TranslatedFields(
+        name=models.TextField(),
+        description=models.CharField(max_length=255)
+    )

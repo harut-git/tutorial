@@ -1,7 +1,7 @@
 from rest_framework import generics
-from models import Product
+from models import Product, Fruit
 from django_filters.rest_framework import DjangoFilterBackend
-from serializers import ProductSerializer
+from serializers import ProductSerializer, FruitSerializer
 
 
 # Create your views here.
@@ -25,3 +25,16 @@ class ProductList(generics.ListAPIView):
     serializer_class = ProductSerializer
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('name', 'price')
+
+
+class FruitList(generics.ListAPIView):
+    serializer_class = FruitSerializer
+
+    def get_queryset(self):
+        lang = self.kwargs['lang']
+        queryset = Fruit.objects.language(lang).all()
+        return queryset
+
+
+class Fruits(generics.CreateAPIView):
+    serializer_class = FruitSerializer(instance=Fruit.objects.language())
