@@ -1,6 +1,7 @@
 from rest_framework import generics
 from models import Product, Fruit
 from django_filters.rest_framework import DjangoFilterBackend
+
 from serializers import ProductSerializer, FruitSerializer
 
 
@@ -31,7 +32,7 @@ class FruitList(generics.ListAPIView):
     serializer_class = FruitSerializer
 
     def get_queryset(self):
-        queryset = Fruit.objects.language(self.request.query_params.get('lang', None))
+        queryset = Fruit.objects.language(self.request.query_params.get('lang', None)).all()
         return queryset
 
 
