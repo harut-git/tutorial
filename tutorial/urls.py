@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('^product/(?P<name>.+)/$', views.ProductViewSet.as_view()),
     url('^products/', views.Products.as_view()),
-    url('^fruits/(?P<lang>.+)/$', views.Fruits.as_view()),
+    url('^fruits/', views.Fruits.as_view()),
     url('^productlist/', views.ProductList.as_view()),
-    url('^fruitlist/(?P<lang>.+)/$', views.FruitList.as_view()),
+    url('^fruitlist/', views.FruitList.as_view()),
 ]

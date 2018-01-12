@@ -31,10 +31,9 @@ class FruitList(generics.ListAPIView):
     serializer_class = FruitSerializer
 
     def get_queryset(self):
-        lang = self.kwargs['lang']
-        queryset = Fruit.objects.language(lang).all()
+        queryset = Fruit.objects.language(self.request.query_params.get('lang', None))
         return queryset
 
 
 class Fruits(generics.CreateAPIView):
-    serializer_class = FruitSerializer(instance=Fruit.objects.language())
+    serializer_class = FruitSerializer

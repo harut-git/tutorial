@@ -12,4 +12,4 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 class FruitSerializer(TranslatableModelSerializer):
     class Meta:
         model = Fruit
-        fields = ('name', 'description', 'price', 'promoted')
+        fields = ('name', 'description', 'price', 'promoted', 'language_code')
