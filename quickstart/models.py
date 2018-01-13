@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+import uuid
+
 from django.db import models
 from hvad.models import TranslatableModel, TranslatedFields
 
@@ -18,6 +20,7 @@ class Product(models.Model):
 
 
 class Fruit(TranslatableModel):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     price = models.IntegerField()
     promoted = models.BooleanField(default=False)
 
