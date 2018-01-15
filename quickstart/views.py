@@ -13,7 +13,7 @@ class Fruits(generics.ListCreateAPIView):
 
     def get_queryset(self):
         queryset = Fruit.objects.language(self.request.query_params.get('lang', None))
-        fruit_id = self.kwargs.get('pk', None)
+        fruit_id = self.request.query_params.get('id', None)
         promoted = self.request.query_params.get('promoted', None)
         if fruit_id is not None:
             queryset = queryset.filter(id=fruit_id)
