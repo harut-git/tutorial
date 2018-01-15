@@ -13,3 +13,4 @@ class FruitSerializer(TranslatableModelSerializer):
     class Meta:
         model = Fruit
         fields = ('id', 'name', 'description', 'price', 'promoted', 'language_code')
+

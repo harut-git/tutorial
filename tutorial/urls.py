@@ -26,4 +26,6 @@ urlpatterns = [
     url('^fruits/', views.Fruits.as_view()),
     url('^productlist/', views.ProductList.as_view()),
     url('^fruitlist/', views.FruitList.as_view()),
+    url(r'^fruit/update/(?P<pk>[0-9]+)/$', views.FruitsUpdate.as_view()),
+    url(r'^fruit/translate/(?P<pk>[0-9]+)/$', views.FruitPartialUpdateView.as_view()),
 ]

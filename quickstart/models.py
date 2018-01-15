@@ -20,7 +20,7 @@ class Product(models.Model):
 
 
 class Fruit(TranslatableModel):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.AutoField(primary_key=True)
     price = models.IntegerField()
     promoted = models.BooleanField(default=False)
 
