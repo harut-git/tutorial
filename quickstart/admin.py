@@ -1,6 +1,15 @@
+import hvad
 from django.contrib import admin
 
 # Register your models here.
-from quickstart.models import Product
+from hvad.admin import TranslatableAdmin
 
-admin.site.register(Product)
+from quickstart.models import Fruit
+
+
+class FruitAdmin(TranslatableAdmin):
+    def get_available_languages(self, obj):
+        pass
+
+
+admin.site.register(Fruit, FruitAdmin)
