@@ -21,7 +21,7 @@ from quickstart import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('^fruits/$', views.Fruits.as_view()),
-    url(r'^fruits/(?P<pk>[0-9]+)/', views.Fruits.as_view()),
+    url('^fruits/$', views.AddFruits.as_view()),
+    url(r'^fruits/(?P<id>[0-9]+)/', views.Fruits.as_view()),
     url(r'^fruit/update/(?P<pk>[0-9]+)/$', views.FruitPartialUpdateView.as_view()),
 ]
